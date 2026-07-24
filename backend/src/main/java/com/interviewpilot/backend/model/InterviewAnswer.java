@@ -38,4 +38,7 @@ public class InterviewAnswer {
 
     @ElementCollection
     private List<String> weaknesses;
+
+    @Column(length = 500)
+    private String interviewerImpression;
 }
