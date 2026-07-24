@@ -1,5 +1,9 @@
 package com.interviewpilot.backend.controller;
 
+import com.interviewpilot.backend.model.InterviewRole;
+import com.interviewpilot.backend.service.InterviewPromptService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.interviewpilot.backend.service.AnswerLengthAnalyzer;
 import com.interviewpilot.backend.service.FillerWordAnalyzer;
 import com.interviewpilot.backend.service.StarStructureDetector;
@@ -39,4 +43,12 @@ public class TestController {
                 "lengthFlag", lengthFlag
         );
     }
+    @Autowired
+    private InterviewPromptService interviewPromptService;
+
+    @GetMapping("/test-first-question")
+    public String testFirstQuestion(@RequestParam InterviewRole role) throws Exception {
+        return interviewPromptService.generateFirstQuestion(role);
+    }
 }
+
